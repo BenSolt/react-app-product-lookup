@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./AppSearchArrayBlocks.css";
 
-function ArraySearchAndColor() {
+function AppSearchArrayBlocks() {
 
     const arr2 = [
 
@@ -66,4 +66,4 @@ function ArraySearchAndColor() {
     );
 };
 
-export default ArraySearchAndColor;
+export default AppSearchArrayBlocks;
