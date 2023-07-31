@@ -3,7 +3,7 @@ import "./AppSearchArrayBlocks.css";
 
 function AppSearchArrayBlocks() {
 
-    const arr2 = [
+    const arr = [
 
         { id: 0, letter: "0", state: "tileStart" },
 
@@ -19,14 +19,12 @@ function AppSearchArrayBlocks() {
         { id: 25, letter: "Y", state: "tileStart" }, { id: 26, letter: "Z", state: "tileStart" }
     ];
 
-    const [array, setArray] = useState(arr2);
+    const [array, setArray] = useState(arr);
     const [searchQuery, setSearchQuery] = useState('');
 
     const handleSearchChange = (event) => {
         setSearchQuery(event.target.value);
     };
-
-    // const filteredArray = array.filter(item => item.letter.toLowerCase().includes(searchQuery.toLowerCase()));
 
     for (let i = 0; i < array.length; i++) {
         if (array[i].letter.toLowerCase() === searchQuery || array[i].letter === searchQuery) {
@@ -56,7 +54,6 @@ function AppSearchArrayBlocks() {
 
                     return (
                         <div className={num.state} key={num.id}>
-                            {/* <h6 className="letter">{num.id}</h6> */}
                             <h1 className="letter">{num.letter}</h1>
                         </div>
                     );
