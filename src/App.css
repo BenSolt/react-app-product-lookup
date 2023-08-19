@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  border: 2px solid black;
 }
 
 .App-logo {
@@ -35,4 +36,31 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Btn {
+  padding: 12px;
+  margin: 0 12px;
+}
+.BtnShuffle {
+  padding: 12px;
+  margin: 0 12px;
+  border: none;
+  background-color: rgb(154, 154, 154);
+  border-radius: 4px;
+
+}
+.BtnShuffle:hover {
+  background-color: green;
+
+}
+/* .message {
+  color: red;
+} */
+.stats {
+  justify-content: center;
+  display: flex;
+}
+.h2b{
+  margin-left: 2%;
 }

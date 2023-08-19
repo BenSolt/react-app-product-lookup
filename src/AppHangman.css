@@ -1,0 +1,68 @@
+.hangman {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .inputs {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5rem;
+  }
+  
+  .inputs input {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  
+  .boardHangman {
+    width: 500px;
+    height: auto;
+    background-Color: #c9c9c9;
+    display: flex;
+    flex-Flow: wrap;
+    margin-top:  3rem;
+    justify-content: center;
+    padding: 5px;
+  }
+  
+  .tileHangman {
+    width: 50px;
+    height: 50px;
+    box-Sizing: border-box;
+    background-Color: gray;
+    border: 2px solid black;
+    border-radius: 4px;
+    margin: 0 5px;
+  }
+  
+  .guessesContainer {
+    align-items: center;
+    width: 500px;
+  }
+  
+  .section {
+    width: 500px;
+    align-items: center;
+  }
+  
+  .guessesLetters {
+    font-size: 1.5rem;
+  }
+  
+  .buttonHangman {
+    padding: 10px;
+  }
+  
+  h2 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .h2text {
+    font-weight: 400;
+    margin-left: 5px;
+  }

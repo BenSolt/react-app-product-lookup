@@ -17,11 +17,21 @@ h5 {
 .inputHolder {
     display: flex;
     justify-content: center;
-    padding: 12px 0;
+    padding: 15px 0;
 }
 input {
     padding: 5px;
     border-radius: 5px;
+    border: 2px solid black;  
+}
+
+.inputNumber {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center; 
+    width: 35px;
+    height: 35px;
+    margin: 2px;
 }
 
 .App2 {
@@ -61,14 +71,28 @@ input {
 
 /* 6 by 6 size */
 .board2 {
-    width: 450px;
-    height: 370px;
+    /* width: 450px;
+    height: 370px; */
+    width: 330px;
+    height: 330px;
     background-Color: #c9c9c9;
     display: flex;
     flex-Flow: wrap;
     margin: auto;
     justify-content: center;
     padding: 5px;
+}
+
+.boardLottery {
+    width: 330px;
+    height: 100px;
+    background-Color: #c9c9c9;
+    display: flex;
+    flex-Flow: wrap;
+  
+    margin:  25px auto;
+    justify-content: center;
+    padding: 5px; 
 }
 
 .uiHolder {
@@ -81,21 +105,10 @@ input {
 .buttonHolder {
     margin-right: 12px;
 }
-/* ////////////////// */
-.tileRed {
-    width: 70px;
-    height: 70px;
-    box-Sizing: border-box;
-    background-Color: red;
-    border: 2px solid black;
-    border-radius: 4px;
-    margin: 2px;
-}
-/* //////////////////////////// */
 
 .tileStart {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     box-Sizing: border-box;
     background-Color: gray;
     border: 2px solid black;
@@ -105,8 +118,8 @@ input {
 }
 
 .tileGreen {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     box-Sizing: border-box;
     background-Color: green;
     border: 2px solid black;
@@ -115,8 +128,8 @@ input {
 }
 
 .tileBlank {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     box-Sizing: border-box;
     background-Color: #c9c9c9;
     border: 2px solid black;
@@ -125,8 +138,8 @@ input {
 }
 
 .tileYellow {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     box-Sizing: border-box;
     background-Color: yellow;
     border: 2px solid black;
@@ -135,8 +148,8 @@ input {
 }
 /* ///////////////// */
 .tileRed {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     box-Sizing: border-box;
     background-Color: red;
     border: 2px solid black;
@@ -147,14 +160,7 @@ input {
 .letter {
     display: flex;
     justify-content: center;
-    margin-top: 12px;
-}
-
-.letter2 {
-    display: flex;
-    justify-content: left;
-    margin: 6px 2px;
-    /* justify-content: center; */
+    /* margin-top: 12px; */
 }
 
 .letterSmall {
