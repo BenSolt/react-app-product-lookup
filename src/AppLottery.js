@@ -18,6 +18,7 @@ function AppLottery() {
     const ArrCorrect = [];
     const [correct, setCorrect] = useState(0);
     const [message, setMessage] = useState('');
+    const arrMatch = [];
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -36,57 +37,44 @@ function AppLottery() {
         }
 
         for (let i = 0; i < randomNumbers.length; i++) {
-            for (var j in inputValues) {
-                //console.log(inputValues);
-                // if (randomNumbers[i] === parseInt(inputValues[j])) {
-                if (randomNumbers[i] === parseInt(inputValues[j]) & i === 0) {
-                    //console.log("1 randomNum INDEX", randomNumbers[i], 'INPUT INDEX:', parseInt(inputValues[j]));
-                }
+            if (randomNumbers[i] === parseInt(inputValues.input1) & i === 0) {
+                arrMatch.push(1);
+            }
+            if (randomNumbers[i] === parseInt(inputValues.input2) & i === 1) {
+                arrMatch.push(1);
+            }
+            if (randomNumbers[i] === parseInt(inputValues.input3) & i === 2) {
+                arrMatch.push(1);
+            }
+            // if (randomNumbers[i] === parseInt(inputValues[j]) & i === 3) {
+            //     arrMatch.push(1);
+            // }
+            // if (randomNumbers[i] === parseInt(inputValues[j]) & i === 4) {
+            //     arrMatch.push(1);
+            // }
 
-                if (randomNumbers[i] === parseInt(inputValues[j]) & i === 1) {
-                    //console.log("2 randomNum", randomNumbers[i], 'INPUT:', parseInt(inputValues[j]));
-                }
-
-                if (randomNumbers[i] === parseInt(inputValues[j]) & i === 2) {
-                    // console.log("3 randomNum", randomNumbers[i], 'INPUT:', parseInt(inputValues[j]));
-                }
-
-                if (randomNumbers[i] === parseInt(inputValues[j]) & i === 3) {
-                    // console.log("4 randomNum", randomNumbers[i], 'INPUT:', parseInt(inputValues[j]));
-                }
-
-                if (randomNumbers[i] === parseInt(inputValues[j]) & i === 4) {
-                    // console.log("5 randomNum", randomNumbers[i], 'INPUT:', parseInt(inputValues[j]));
-                }
+            if (arrMatch.length === 3) {
+                setMessage('INPUT: You Win! Arrays match at all indexes.');
+                setCorrect(correct + 1);
+            }
+            else {
+                setMessage('INPUT: Arrays do not match at all indexes.');
             }
         };
 
         setNumbers(randomNumbers);
         setGuess(guess + 1);
         setCost(cost + 2);
-        winLottery();
         // setMessage('')
-    }
-
-    function winLottery() {
-
-        if (ArrCorrect.length === 1) {
-            setCorrect(correct + 1);
-            setMessage('YOU MATCHED 1!');
-        }
-        // if (ArrCorrect.length === 5) {
-        //     setCorrect(correct + 1);
-        //     setMessage('YOU WON THE LOTTERY!');
-        // }
     }
 
     function areAllFieldsFilled() {
         return (
             inputValues.input1 !== '' &&
             inputValues.input2 !== '' &&
-            inputValues.input3 !== '' &&
-            inputValues.input4 !== '' &&
-            inputValues.input5 !== ''
+            inputValues.input3 !== '' 
+            // inputValues.input4 !== '' &&
+            // inputValues.input5 !== ''
         );
     };
 
@@ -117,7 +105,7 @@ function AppLottery() {
                     value={inputValues.input3}
                     onChange={handleInputChange}
                 />
-                <input
+                {/* <input
                     className='inputNumber'
                     type="text"
                     name="input4"
@@ -130,15 +118,15 @@ function AppLottery() {
                     name="input5"
                     value={inputValues.input5}
                     onChange={handleInputChange}
-                />
+                /> */}
             </div>
 
-            <button className='Btn' disabled={!areAllFieldsFilled()} onClick={() => generateRandomNumbers(1, 69, 5)}>Generate Numbers</button>
-
+            {/* <button className='Btn' disabled={!areAllFieldsFilled()} onClick={() => generateRandomNumbers(1, 69, 5)}>Generate Numbers</button> */}
+            <button className='Btn' disabled={!areAllFieldsFilled()} onClick={() => generateRandomNumbers(1, 3, 3)}>Generate Numbers</button>
             <h2>Number of Tries total: {guess}</h2>
             <h2>Cost: ${cost}</h2>
             <h2>Correct: {correct}</h2>
-            {/* <h1>{message}</h1> */}
+            <h1>{message}</h1>
 
             <div className="boardLottery">
                 {numbers.map((number, index) => {
