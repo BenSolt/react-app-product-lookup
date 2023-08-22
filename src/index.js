@@ -4,7 +4,6 @@ import './index.css';
 //import App from './App';
 import SearchArray from './SearchArray';
 import AppSearchArrayBlocks from './AppSearchArrayBlocks';
-import AppMatch from './AppMatch';
 import AppLottery from './AppLottery';
 
 import AppWordShuffle from './AppWordShuffle';
@@ -18,7 +17,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    {/* <AppMatch/> */}
+
     <AppHangman/>
     <AppWordShuffle/>
     <AppLottery/>

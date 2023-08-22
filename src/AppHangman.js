@@ -50,7 +50,6 @@ const Hangman = () => {
                 {word.split("").map((letter, index) => (
                     <div style={{ borderBottom: ".1em solid black" }} key={index} className='tileHangman'>
                         <h1 className="letter">
-
                             {guesses.includes(letter)
                                 ? <div>{letter}</div>
                                 : ""}
@@ -61,12 +60,12 @@ const Hangman = () => {
 
             <div className='guessesContainer'>
 
-                <div className='section'>
-                    <h2>Guesses Left:<span className="h2text">{maxIncorrectGuesses - incorrectGuesses}</span></h2>
+                <div className='sectionHangman'>
+                    <h3 className='h3Info'>Guesses Left:<span className="h2text">{maxIncorrectGuesses - incorrectGuesses}</span></h3>
                 </div>
 
-                <div className='section'>
-                    <h2>Letters Guessed: </h2>
+                <div className='sectionHangman'>
+                    <h3 className='h3Info'>Letters Guessed:</h3>
                     <div className="guessesLetters">
                         {guesses.map((guess, index) => (
                             <span key={index}>{guess}, </span>

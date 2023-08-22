@@ -1,10 +1,22 @@
 h1 {
     margin-top: 4px;
     margin-bottom: 2px;
+    text-decoration: underline;
+}
+.h1Message {
+    margin-top: 12px;
+    margin-bottom: 2px;
+    text-decoration: none;
 }
 h2 {
     margin-top: 12px;
     margin-bottom: 2px;
+}
+.h3Info {
+    margin: 5px 0;
+}
+span {
+    font-weight: 450;
 }
 
 h5 {
@@ -26,7 +38,7 @@ input {
 }
 
 .inputNumber {
-    font-size: 15px;
+    font-size: 22px;
     font-weight: bold;
     text-align: center; 
     width: 35px;
@@ -45,16 +57,19 @@ input {
     text-align: center;
 }
 
-.section {
-    width: 100px;
+.sectionHolder {
+    display: flex;
     align-items: center;
     justify-content: center;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
+.section {
+    display: flex;
+    width: 256px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
 /* 4 by 4 size  300px*/
 /* 3by 3 size  225px*/
@@ -84,12 +99,11 @@ input {
 }
 
 .boardLottery {
-    width: 330px;
-    height: 100px;
+    width: 256px;
+    height: 55px;
     background-Color: #c9c9c9;
     display: flex;
     flex-Flow: wrap;
-  
     margin:  25px auto;
     justify-content: center;
     padding: 5px; 
@@ -160,7 +174,7 @@ input {
 .letter {
     display: flex;
     justify-content: center;
-    /* margin-top: 12px; */
+    text-decoration: none;
 }
 
 .letterSmall {

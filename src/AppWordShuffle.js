@@ -19,15 +19,13 @@ function App() {
   const [message, setMessage] = useState('');
 
   const [strike, setStrike] = useState(0);
-  const [enable, setEnable] = useState(true);
+  const [enablePlay, setEnablePlay] = useState(true);
   const [correct, setCorrect] = useState(0);
 
   const initialDuration = 3; // 3 Seconds, was 30 seconds
   const [duration, setDuration] = useState(initialDuration);
-
   let [running, setRunning] = useState(false);
-  let [time, setTime] = useState(0);
-  let timerId = useRef(null);
+  const [enableSubmit, setEnableSubmit] = useState(true);
 
   useEffect(() => {
     updateShuffledWord();
@@ -39,7 +37,7 @@ function App() {
   function stopTimer() {
     setRunning(false);
   }
-  
+
   useEffect(() => {
     if (running & duration > 0) {
       const interval = setInterval(() => {
@@ -48,16 +46,16 @@ function App() {
 
       return () => clearInterval(interval);
     }
+    if (running & duration === 0) {
+      setMessage('GAME OVER');
+      setEnablePlay(false);
+
+    }
   }, [running, duration]);
 
   const formatTime = timeInSeconds => {
     const minutes = Math.floor(timeInSeconds / 60);
     const seconds = timeInSeconds % 60;
-
-    // TIME is equal to Zero - GAME OVER ////////////////
-    if (seconds === 0) {
-        console.log("GAME OVER")
-    }
 
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
@@ -79,8 +77,8 @@ function App() {
       updateShuffledWord();
     } else {
       setMessage('Incorrect. Try again.');
-      setStrike(strike + 1);
-      addStrike();
+      //setStrike(strike + 1);
+      //addStrike();
     }
   };
 
@@ -88,15 +86,17 @@ function App() {
     updateShuffledWord();
     setStrike(0);
     setCorrect(0);
-    setEnable(true)
+    setEnablePlay(true);
+    setDuration(3);
+    setRunning(false);
   }
 
-  function addStrike() {
-    if (strike === 2) {
-      setEnable(false)
-      gameOver();
-    }
-  }
+  // function addStrike() {
+  //   if (strike === 2) {
+  //     setEnablePlay(false);
+  //     gameOver();
+  //   }
+  // }
 
   function gameOver() {
     setMessage('GAME OVER');
@@ -106,23 +106,23 @@ function App() {
     <div className="App">
       <h1>Word Shuffle Game New</h1>
       <div className="word-container">
-        <h3>Timer: {formatTime(duration)}</h3>
-        <h2 id="shuffled-word">{shuffledWord}</h2>
+        <h2>Timer: <span>{formatTime(duration)}</span></h2>
+        <h2 id="shuffled-word">Shuffled Word:  <span>{shuffledWord}</span></h2>
         <input
           type="text"
           value={userGuess}
           onChange={(e) => setUserGuess(e.target.value)}
           placeholder="Enter your guess"
         />
-        <button className="BtnShuffle" onClick={checkGuess}>Check</button>
+        <button className="BtnSubmitShuffle" onClick={checkGuess}>Submit</button>
       </div>
       <div className='stats'>
-        <h2>Strikes: {strike}</h2>
-        <h2 className='h2b'>Streak: {correct}</h2>
+        {/* <h2>Strikes: <span>{strike}</span></h2> */}
+        <h2 className='h2b'>Streak: <span>{correct}</span></h2>
       </div>
 
       <h3 className="message">{message}</h3>
-      <button disabled={enable} className="Btn" onClick={playAgain}>Play Again</button>
+      <button disabled={enablePlay} className="BtnPlayAgain" onClick={playAgain}>Play Again</button>
       {/* <button className="Btn" onClick={stopTimer}>Pause</button> */}
     </div>
   );
